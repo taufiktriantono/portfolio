@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ProjectCard } from "@/components/project-card";
-import { experience } from "@/data/experience";
+import { education, experience, languages } from "@/data/experience";
 import { interests, principles, profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 
@@ -25,7 +25,7 @@ export default function Home() {
       <section id="about" className="section shell two-column">
         <div><p className="section-index">01 / About</p><h2>Learning by building systems that have to work.</h2></div>
         <div className="prose">
-          <p>I entered software engineering without a formal Computer Science degree and continued learning independently through professional work, experimentation, and personal projects.</p>
+          <p>I entered software engineering through a vocational background in computer and network engineering, then continued learning independently through professional work, experimentation, and personal projects.</p>
           <p>My experience has been primarily backend engineering, but over time my interests have expanded toward distributed systems, reliability, observability, cloud infrastructure, and platform engineering.</p>
           <p>I enjoy understanding not only how an application works, but also how it behaves after deployment: how it scales, fails, recovers, is monitored, and how infrastructure costs can be understood and controlled.</p>
         </div>
@@ -54,9 +54,13 @@ export default function Home() {
       </section>
 
       <section id="experience" className="section shell two-column">
-        <div><p className="section-index">05 / Experience</p><h2>Professional experience.</h2><p className="section-note">This timeline intentionally contains no invented employers, dates, or achievements.</p></div>
+        <div><p className="section-index">05 / Experience</p><h2>Professional experience.</h2><p className="section-note">More than eight years building and operating production backend systems.</p></div>
         <div className="timeline">
-          {experience.map((item) => <article key={item.role}><span className="timeline-dot" /><p className="mono-label">{item.period}</p><h3>{item.role}</h3><p>{item.description}</p></article>)}
+          {experience.map((item) => <article key={`${item.company}-${item.period}`}><span className="timeline-dot" /><p className="mono-label">{item.period}</p><h3>{item.role}</h3><p className="experience-company">{item.company} · {item.location}</p><p>{item.description}</p><ul className="experience-highlights">{item.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul></article>)}
+          <div className="background-details">
+            <div><p className="mono-label">Education</p><h3>{education.school}</h3><p>{education.qualification} in {education.program}</p><span>Graduated {education.graduated}</span></div>
+            <div><p className="mono-label">Languages</p>{languages.map((language) => <p key={language.name}>{language.name}<span>{language.proficiency}</span></p>)}</div>
+          </div>
         </div>
       </section>
 

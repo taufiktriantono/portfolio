@@ -3,20 +3,20 @@ export const profile = {
   role: "Backend Engineer",
   headline: "Building reliable backend systems and exploring cloud platform engineering.",
   summary:
-    "I work primarily with Go, PostgreSQL, distributed systems, observability, and cloud infrastructure. I enjoy understanding how systems behave in production and building tools that make them easier to operate.",
+    "Backend engineer with 8+ years of professional experience building and operating production systems across fintech, loyalty, SaaS, and agritech. I work primarily with Go, PostgreSQL, distributed systems, observability, and cloud infrastructure.",
   email: "taufik.triantono@railzway.com",
   links: {
     github: "https://github.com/taufiktriantono",
-    linkedin: "https://www.linkedin.com/in/taufiktriantono",
+    linkedin: "https://www.linkedin.com/in/taufik-triantono",
   },
 } as const;
 
 export const interests = [
-  { name: "Backend systems", items: ["Go", "REST APIs", "Distributed services", "Concurrency"] },
-  { name: "Data", items: ["PostgreSQL", "Database design", "Transactions", "Consistency"] },
+  { name: "Backend systems", items: ["Go", "Node.js", "REST", "gRPC", "Distributed services", "Concurrency"] },
+  { name: "Data", items: ["PostgreSQL", "MongoDB", "Redis", "ClickHouse", "Transactions", "Consistency"] },
   { name: "Messaging", items: ["Kafka", "Asynchronous processing", "Event-driven systems"] },
-  { name: "Platform", items: ["Docker", "Kubernetes", "Nomad", "Consul", "CI/CD"] },
-  { name: "Observability", items: ["Prometheus", "Grafana", "OpenTelemetry", "Loki", "Tempo"] },
+  { name: "Platform", items: ["Docker", "Kubernetes", "GKE", "Nomad", "GitLab CI/CD", "GitHub Actions"] },
+  { name: "Observability", items: ["Prometheus", "Grafana", "Jaeger", "OpenTelemetry", "Tempo"] },
   { name: "Cloud", items: ["Google Cloud Platform", "Compute", "Networking", "Deployment", "Infrastructure experiments"] },
 ] as const;
 

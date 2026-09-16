@@ -19,7 +19,7 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.highlights.map((item) => <span key={item}>{item}</span>)}
       </div>
       <div className="project-actions">
-        <a className="button secondary" href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+        {project.github && <a className="button secondary" href={project.github} target="_blank" rel="noreferrer">GitHub ↗</a>}
         <Link className="text-link" href={`/projects/${project.slug}`}>Project details <span>→</span></Link>
       </div>
     </article>

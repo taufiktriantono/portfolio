@@ -29,7 +29,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <p className="section-index">Personal project / {project.index}</p>
         <h1>{project.name}</h1>
         <p>{project.description}</p>
-        <div className="hero-actions"><a className="button primary" href={project.github} target="_blank" rel="noreferrer">View on GitHub ↗</a></div>
+        {project.github && <div className="hero-actions"><a className="button primary" href={project.github} target="_blank" rel="noreferrer">View on GitHub ↗</a></div>}
       </header>
 
       <div className="project-detail-grid">
