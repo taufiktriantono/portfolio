@@ -66,6 +66,41 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/railzwaylabs/railzwayapis",
   },
+  {
+    slug: "macro",
+    index: "03",
+    name: "Macro",
+    label: "Go service toolkit",
+    description: "A lightweight Go service toolkit for standardizing service lifecycle, gRPC transport, structured logging, diagnostics, and data-store wiring without coupling business logic to the framework.",
+    question: "How can Go services share reliable infrastructure conventions while keeping their application logic independent?",
+    stack: ["Go", "gRPC", "Protocol Buffers", "Zap", "GORM", "GitHub Actions"],
+    architecture: ["Composition root", "Transport adapter", "Application service", "Repository port", "Infrastructure adapter"],
+    highlights: ["Service lifecycle", "Graceful shutdown", "gRPC transport", "Runtime log levels", "pprof diagnostics", "Database adapters", "Application boundaries", "Cross-platform releases"],
+    overview: "Macro is a personal service-toolkit experiment inspired by Go Micro and adapted to Railzway's development conventions. It provides a compact runtime for assembling shared infrastructure at the executable boundary while repositories, application services, protobuf contracts, and transport handlers remain owned by each service.",
+    problem: "As the number of Go services grows, bootstrap code and operational conventions tend to drift. Logging, server startup, shutdown behavior, diagnostics, and database configuration are repeatedly implemented with small but consequential differences. Macro explores how those concerns can be standardized without moving business rules into a framework or generic repository layer.",
+    technicalDecisions: [
+      "A small lifecycle contract based on Start and Stop rather than a broad framework-owned service abstraction",
+      "Composition-root wiring so only the executable entrypoint knows every concrete dependency",
+      "Standard gRPC and application-owned protobuf contracts instead of a custom RPC protocol",
+      "Zap logging with an internal HTTP endpoint for changing log levels at runtime",
+      "Loopback-only pprof and management endpoints by default",
+      "Explicit database configuration for PostgreSQL, MySQL, and SQLite rather than opaque DSN-only setup",
+      "GoReleaser and GitHub Actions for reproducible cross-platform CLI releases",
+    ],
+    challenges: [
+      "Keeping convenience APIs small enough that application code remains framework-independent",
+      "Coordinating multiple server lifecycles and bounded graceful shutdown correctly",
+      "Defining shared repository primitives without allowing business logic to leak into persistence adapters",
+      "Providing useful defaults while leaving transport and infrastructure choices replaceable",
+    ],
+    learnings: [
+      "A service framework is most useful at the composition boundary, not inside business use cases",
+      "Lifecycle management and operational defaults create more consistency than abstracting every application concern",
+      "Repository interfaces should be owned by the application layer and implemented by infrastructure adapters",
+      "Small explicit contracts are easier to test and evolve than framework-wide implicit behavior",
+    ],
+    github: "https://github.com/railzwaylabs/macro",
+  },
 ];
 
 export function getProject(slug: string) {
